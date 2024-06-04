@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -33,40 +34,27 @@ class ProductController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'image' => 'required',
-            'criteria' => 'required',
-            'favorite' => 'required',
+            'image' => 'required|image',
             'status' => 'required',
             'stock' => 'required',
         ]);
-
-        // 'category_id',
-        // 'name',
-        // 'description',
-        // 'price',
-        // 'image',
-        // 'criteria',
-        // 'favorite',
-        // 'status',
-        // 'stock',
 
         $product = new Product;
         $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
-
-        $product->criteria = $request->criteria;
-        $product->favorite = $request->favorite;
         $product->status = $request->status;
         $product->stock = $request->stock;
         $product->save();
 
-        //image
-        $image = $request->file('image');
-        $image->storeAs('public/products', $product->id . '.' . $image->extension());
-        $product->image = 'products/' . $product->id . '.' . $image->extension();
-        $product->save();
+        // Save the image
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->storeAs('public/products', $product->id . '.' . $image->extension());
+            $product->image = 'products/' . $product->id . '.' . $image->extension();
+            $product->save();
+        }
 
         return redirect()->route('products.index')->with('success', 'Product created successfully');
     }
@@ -81,30 +69,43 @@ class ProductController extends Controller
     //update
     public function update(Request $request, Product $product)
     {
+        $request->validate([
+            'category_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+            'stock' => 'required',
+            'image' => 'image',
+        ]);
 
         $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
-        $product->criteria = $request->criteria;
-        $product->favorite = $request->favorite;
         $product->status = $request->status;
         $product->stock = $request->stock;
         $product->save();
 
-        //check if image is not empty
-        if ($request->image) {
+        // Check if image is not empty
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image->storeAs('public/products', $product->id . '.' . $image->extension());
+            $path = $image->storeAs('public/products', $product->id . '.' . $image->extension());
             $product->image = 'products/' . $product->id . '.' . $image->extension();
             $product->save();
         }
+
         return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
     //destroy
     public function destroy(Product $product)
     {
+        // Delete the image from storage
+        if ($product->image) {
+            Storage::delete('public/' . $product->image);
+        }
+
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product deleted successfully');
     }

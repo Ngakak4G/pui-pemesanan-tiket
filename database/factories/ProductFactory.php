@@ -22,9 +22,9 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence,
             'price' => $this->faker->randomFloat(2, 1, 100),
             'image' => $this->faker->imageUrl(640, 480, 'animals', true),
-            'criteria' => 'perorangan',
+            // 'criteria' => 'perorangan',
             'favorite' => $this->faker->boolean,
-            'status' => 'published',
+            // 'status' => 'published',
             'stock' => $this->faker->numberBetween(1, 100),
         ];
     }

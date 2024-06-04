@@ -53,42 +53,35 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-
                                             <th>Name</th>
                                             <th>Category</th>
                                             <th>Price</th>
+                                            <th>Photo</th>
                                             <th>Status</th>
                                             <th>Create At</th>
                                             <th>Action</th>
                                         </tr>
                                         @foreach ($products as $product)
                                             <tr>
-
-                                                <td>{{ $product->name }}
-                                                </td>
+                                                <td>{{ $product->name }}</td>
+                                                <td>{{ $product->category->name }}</td>
+                                                <td>{{ $product->price }}</td>
                                                 <td>
-                                                    {{ $product->category->name }}
+                                                    @if ($product->image)
+                                                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" width="100">
+                                                    @endif
                                                 </td>
-                                                <td>
-                                                    {{ $product->price }}
-                                                </td>
-                                                <td>
-                                                    {{ $product->status }}
-                                                </td>
+                                                <td>{{ $product->status }}</td>
                                                 <td>{{ $product->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href='{{ route('products.edit', $product->id) }}'
-                                                            class="btn btn-sm btn-info btn-icon">
-                                                            <i class="fas fa-edit"></i>
-                                                            Edit
+                                                        <a href='{{ route('products.edit', $product->id) }}' class="btn btn-sm btn-info btn-icon">
+                                                            <i class="fas fa-edit"></i> Edit
                                                         </a>
 
-                                                        <form action="{{ route('products.destroy', $product->id) }}"
-                                                            method="POST" class="ml-2">
-                                                            <input type="hidden" name="_method" value="DELETE" />
-                                                            <input type="hidden" name="_token"
-                                                                value="{{ csrf_token() }}" />
+                                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="ml-2">
+                                                            @csrf
+                                                            @method('DELETE')
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>
@@ -97,8 +90,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
-
                                     </table>
                                 </div>
                                 <div class="float-right">
