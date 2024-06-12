@@ -112,7 +112,7 @@
                                 @enderror
                             </div>
 
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label class="form-label">Status</label>
                                 <div class="selectgroup selectgroup-pills">
                                     <label class="selectgroup-item">
@@ -125,7 +125,7 @@
                                         <span class="selectgroup-button">Archived</span>
                                     </label>
                                 </div>
-                            </div> --}}
+                            </div>
 
                             <div class="form-group">
                                 <label class="form-label">Creteria</label>
@@ -143,7 +143,7 @@
                             </div>
 
                             {{-- is favorite --}}
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label class="form-label">Is Favorite</label>
                                 <div class="selectgroup selectgroup-pills">
                                     <label class="selectgroup-item">
@@ -156,7 +156,7 @@
                                         <span class="selectgroup-button">No</span>
                                     </label>
                                 </div>
-                            </div> --}}
+                            </div>
 
 
                         </div>

@@ -124,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                {{-- <div class="col-lg-4 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Recent Activities</h4>
@@ -189,16 +189,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div> --}}
+            {{-- <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-body pt-2 pb-2">
                             <div id="myWeather">Please wait</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+                </div> --}}
+                {{-- <div class="col-lg-6 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Authors</h4>
@@ -256,9 +256,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
+                </div> --}}
+            {{-- </div> --}}
+            {{-- <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="card">
                         <div class="card-header">
@@ -387,17 +387,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card mt-sm-5 mt-md-0">
+                    </div> --}}
+                    {{-- <div class="card mt-sm-5 mt-md-0">
                         <div class="card-header">
                             <h4>Visitors</h4>
                         </div>
                         <div class="card-body">
                             <div id="visitorMap"></div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12">
+                    </div> --}}
+                {{-- </div> --}}
+                {{-- <div class="col-lg-6 col-md-6 col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>This Week Stats</h4>
@@ -481,8 +481,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
+                    </div> --}}
+                    {{-- <div class="card">
                         <div class="card-header">
                             <h4 class="d-inline">Tasks</h4>
                             <div class="card-header-action">
@@ -572,10 +572,10 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-5 col-md-12 col-12 col-sm-12">
                     <form method="post"
                         class="needs-validation"
@@ -605,8 +605,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="col-lg-7 col-md-12 col-12 col-sm-12">
+                </div> --}}
+                {{-- <div class="col-lg-7 col-md-12 col-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Latest Posts</h4>
@@ -799,7 +799,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
     </div>

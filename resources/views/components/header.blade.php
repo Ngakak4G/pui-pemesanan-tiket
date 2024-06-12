@@ -36,7 +36,7 @@
                     <a href="#">#Stisla</a>
                     <a href="#"
                         class="search-close"><i class="fas fa-times"></i></a>
-                </div>
+                </div>F
                 <div class="search-header">
                     Result
                 </div>
@@ -222,8 +222,8 @@
                             Low disk space. Let's clean it!
                             <div class="time">17 Hours Ago</div>
                         </div>
-                    </a>
-                    <a href="#"
+                    </a> }}
+                    {{-- {{ {{<a href="#"
                         class="dropdown-item">
                         <div class="dropdown-item-icon bg-info text-white">
                             <i class="fas fa-bell"></i>
@@ -232,7 +232,7 @@
                             Welcome to Stisla template!
                             <div class="time">Yesterday</div>
                         </div>
-                    </a>
+                    </a> }} --}}
                 </div>
                 <div class="dropdown-footer text-center">
                     <a href="#">View All <i class="fas fa-chevron-right"></i></a>
